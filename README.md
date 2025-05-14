@@ -1,8 +1,9 @@
+
 ---
 
 # **Inventory Management System**
 
-This Inventory Management System is a comprehensive and user-friendly application designed to manage employees, suppliers, users, and inventory within an organization. It provides functionalities like adding, viewing, searching, and deleting records for employees, suppliers, and users. Additionally, it supports user authentication, including a login system and user role management (Admin, Employee, Supplier).
+This is a Python-based Inventory Management System built using Tkinter for the graphical user interface (GUI) and SQLite for data storage. The system allows users to manage employees, suppliers, inventory, and users with different roles (Admin, Employee, Supplier). It includes functionalities such as login, user registration, searching records, adding records, and deleting records.
 
 ---
 
@@ -10,10 +11,9 @@ This Inventory Management System is a comprehensive and user-friendly applicatio
 
 * [Features](#features)
 * [Technologies](#technologies)
-* [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Database Schema](#database-schema)
+* [Database Structure](#database-structure)
 * [Screenshots](#screenshots)
 * [Contributing](#contributing)
 * [License](#license)
@@ -24,163 +24,145 @@ This Inventory Management System is a comprehensive and user-friendly applicatio
 
 * **User Authentication:**
 
-  * Admin, Employee, and Supplier roles.
-  * Login functionality.
-  * Create new user accounts.
+  * Login with username and password.
+  * User roles: Admin, Employee, Supplier.
+  * Admin can manage users (create, delete, and assign roles).
 
-* **Manage Employees:**
+* **Employee Management:**
 
-  * Add, edit, delete, and view employee details (name, date of birth, email).
-  * Search employees by name or email.
+  * Add, view, search, and delete employee records.
+  * Employees are identified by name, date of birth, and email.
 
-* **Manage Suppliers:**
+* **Supplier Management:**
 
-  * Add, edit, delete, and view supplier details (name, invoice number).
-  * Search suppliers by name or invoice number.
+  * Add, view, search, and delete supplier records.
+  * Suppliers are identified by name and invoice number.
 
-* **Manage Inventory:**
+* **Inventory Management:**
 
-  * View and manage inventory (product name, quantity, price).
-  * Search inventory items by name or price.
+  * Add, view, search, and delete inventory records.
+  * Inventory is managed by product name, quantity, and price.
 
-* **Manage Users (Admin only):**
+* **Role-Based Access:**
 
-  * Add, edit, delete, and view user details (username, name, role).
-  * Search users by username, name, or role.
+  * Admin has access to all features and can manage users, employees, suppliers, and inventory.
+  * Employee and Supplier have limited access based on their roles.
 
 * **Search Functionality:**
 
-  * Search across all tabs (Employees, Suppliers, Users).
+  * Search records by name, email, invoice number, or role across various tabs (Employees, Suppliers, Users).
+
+* **Delete Confirmation:**
+
+  * Confirm deletion of records (employees, suppliers, users) before performing the action.
 
 ---
 
 ## **Technologies**
 
-This application is built using the following technologies:
-
-* **Python** – The core programming language.
-* **Tkinter** – For building the graphical user interface (GUI).
-* **SQLite** – Lightweight database for storing data.
-* **Pillow (PIL)** – For handling image operations (optional).
-* **SQLAlchemy (optional)** – For ORM database operations (not implemented in this version).
-
----
-
-## **Requirements**
-
-Before running this application, ensure that you have the following software installed:
-
-* Python 3.x
-* SQLite (comes bundled with Python)
-
-You will also need to install the required libraries by running the following:
-
-```bash
-pip install -r requirements.txt
-```
-
-If `requirements.txt` does not exist, install the required libraries manually:
-
-```bash
-pip install tk pillow
-```
+* **Python 3.x** – Core programming language.
+* **Tkinter** – GUI framework for building the desktop application.
+* **SQLite** – Lightweight database for storing application data.
+* **Pillow (PIL)** – Used for handling image loading (optional, for icons).
 
 ---
 
 ## **Installation**
 
-1. Clone the repository:
+1. **Clone the Repository:**
 
-```bash
-git clone https://github.com/B-6219/Inventory-Manangement-System.git
-```
+   ```bash
+   git clone https://github.com/yourusername/Inventory-Managment-System.git
+   ```
 
-2. Navigate to the project directory:
+2. **Install Dependencies:**
 
-```bash
-cd Inventory-Manangement-System
-```
+   You may need to install Tkinter and Pillow if they are not installed by default. You can install them using pip:
 
-3. Run the application:
+   ```bash
+   pip install tk pillow
+   ```
 
-```bash
-python main.py
-```
+3. **Run the Application:**
+
+   After the dependencies are installed, navigate to the project directory and run the application:
+
+   ```bash
+   python main.py
+   ```
+
+   This will open the login window where you can either log in or create a new account.
 
 ---
 
 ## **Usage**
 
-* **Login/Sign Up:**
+* **Login:**
 
-  * Upon launching the app, you will be presented with a login screen.
-  * You can either log in with an existing user account or create a new one.
-  * Admin, Employee, and Supplier roles are supported, and each role has different access permissions.
+  * Users can log in with their username and password.
+  * Admin, Employee, and Supplier roles are available.
+
+* **Account Creation:**
+
+  * New users can create an account by providing a username, password, and role (Admin, Employee, Supplier).
 
 * **Dashboard:**
 
-  * After logging in, you will be redirected to the dashboard where you can access different tabs such as Employees, Suppliers, Inventory, and Users (Admin only).
-  * Each tab has options to view, search, add, and delete records.
+  * After logging in, the user will be taken to the dashboard with different tabs such as:
+
+    * Employees: Manage employee records (Add, Delete, Search).
+    * Suppliers: Manage supplier records (Add, Delete, Search).
+    * Users (Admin only): Manage users (Add, Delete, Search).
 
 * **Search:**
 
-  * You can search through the records in all tabs (Employees, Suppliers, and Users) by typing in the search bar at the top of each tab.
+  * Each tab includes a search bar that allows users to search records by specific fields like name, email, or invoice number.
 
-* **Admin Features:**
+* **Role-Based Access:**
 
-  * Admin users can manage users by adding, editing, and deleting users. Only Admins can perform these actions.
+  * Admins can manage users, employees, suppliers, and inventory.
+  * Employees and Suppliers have limited access based on their roles.
+
+* **Delete Confirmation:**
+
+  * Users will be prompted with a confirmation dialog before any record deletion occurs to prevent accidental data loss.
 
 ---
 
-## **Database Schema**
+## **Database Structure**
 
-The application uses **SQLite** as its database and has the following tables:
+The system uses SQLite with the following tables:
 
 1. **users**
 
-   * `id` (Primary Key)
-   * `username` (Unique)
-   * `password`
-   * `name`
-   * `role` (Admin, Employee, Supplier)
+   * `id`: Primary Key (INTEGER)
+   * `username`: Unique (TEXT)
+   * `password`: (TEXT)
+   * `name`: (TEXT)
+   * `role`: (TEXT) - Can be `admin`, `employee`, or `supplier`
 
 2. **employees**
 
-   * `id` (Primary Key)
-   * `name`
-   * `dob` (Date of Birth)
-   * `email`
+   * `id`: Primary Key (INTEGER)
+   * `name`: (TEXT)
+   * `dob`: (TEXT) - Date of Birth
+   * `email`: (TEXT)
 
 3. **suppliers**
 
-   * `id` (Primary Key)
-   * `name`
-   * `invoice_no` (Invoice Number)
+   * `id`: Primary Key (INTEGER)
+   * `name`: (TEXT)
+   * `invoice_no`: (TEXT)
 
 4. **inventory**
 
-   * `id` (Primary Key)
-   * `product_name`
-   * `quantity`
-   * `price`
+   * `id`: Primary Key (INTEGER)
+   * `product_name`: (TEXT)
+   * `quantity`: (INTEGER)
+   * `price`: (REAL)
 
 ---
 
-## **Screenshots**
-
-![Login Screen](assets/login_screen.png)
-
-*Sample login screen.*
-
-![Employee Management](assets/employee_management.png)
-
-*Employee management tab where you can add, view, search, and delete employees.*
-
-![Supplier Management](assets/supplier_management.png)
-
-*Supplier management tab where you can add, view, search, and delete suppliers.*
-
----
 
 ## **Contributing**
 
@@ -197,4 +179,11 @@ The application uses **SQLite** as its database and has the following tables:
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
--
+---
+
+## **Acknowledgments**
+
+* Thanks to the developers and contributors of the libraries used in this project (Tkinter, SQLite, Pillow).
+* Special thanks to all contributors who help improve this project through feedback and pull requests.
+
+---
